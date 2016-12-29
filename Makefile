@@ -1,5 +1,7 @@
-BASE_BOX ?=	vagrant-win7-ie11
-BASE_BOX_URL ?=	http://aka.ms/vagrant-win7-ie11
+#BASE_BOX ?=	vagrant-win7-ie11
+#xBASE_BOX ?=	vagrant-win81-ie11
+BASE_BOX ?=	vagrant-xp-ie8
+BASE_BOX_URL ?=	http://aka.ms/$(BASE_BOX)
 
 all: run
 
