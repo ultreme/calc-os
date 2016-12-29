@@ -11,4 +11,4 @@ run:	$(BASE_BOX)
 
 
 $(BASE_BOX):
-	mkdir -p .tmp && cd .tmp && wget -c $(BASE_BOX_URL) && mv $(BASE_BOX_URL) ..
+	mkdir -p .tmp && cd .tmp && wget -c $(BASE_BOX_URL) && mv $(BASE_BOX) ..
