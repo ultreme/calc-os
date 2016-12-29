@@ -14,11 +14,11 @@ Vagrant.configure(2) do |config|
     config.vm.network :forwarded_port, guest: 3389, host: 33891,
         id: "rdp", auto_correct:true
     # Chemin de la box qui sera importée au premier démarrage
-    config.vm.box_url = "file://vagrant-win7-ie11"
+    config.vm.box_url = "file://vagrant-xp-ie8"
     # Timeout rapide (30 s) au premier démarrage
     config.vm.boot_timeout = 30
     # Nom de la box
-    config.vm.box = "win7-ie11"
+    config.vm.box = "calc-os"
 
     # Configuration spécifique à la techno de virtualisation
     # utilisée
