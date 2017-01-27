@@ -3,6 +3,7 @@ Vagrant.configure(2) do |config|
     config.vm.guest = :windows
     # Configuration de winrm, qui rend la VM scriptable depuis
     # l'extérieur.
+
     config.vm.communicator = "winrm"
     # Identifiants pour que Vagrant puisse commander la VM
     config.winrm.username = "IEUser"
@@ -19,6 +20,8 @@ Vagrant.configure(2) do |config|
     config.vm.boot_timeout = 30
     # Nom de la box
     config.vm.box = "calc-os"
+
+    config.vm.synced_folder "shared/", "/shared"
 
     # Configuration spécifique à la techno de virtualisation
     # utilisée
