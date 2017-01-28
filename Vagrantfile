@@ -3,11 +3,12 @@ Vagrant.configure(2) do |config|
     config.vm.guest = :windows
     # Configuration de winrm, qui rend la VM scriptable depuis
     # l'extérieur.
-
     config.vm.communicator = "winrm"
     # Identifiants pour que Vagrant puisse commander la VM
     config.winrm.username = "IEUser"
     config.winrm.password = "Passw0rd!"
+    config.winrm.retries = 30
+    config.windows.halt_timeout = 25
     # Ouverture du port réseau de winrm
     config.vm.network :forwarded_port, guest: 5985, host: 59851,
         id: "winrm", auto_correct:true
@@ -15,13 +16,16 @@ Vagrant.configure(2) do |config|
     config.vm.network :forwarded_port, guest: 3389, host: 33891,
         id: "rdp", auto_correct:true
     # Chemin de la box qui sera importée au premier démarrage
+    #config.vm.box_url = "file://vagrant-win81-ie11"
     config.vm.box_url = "file://vagrant-xp-ie8"
     # Timeout rapide (30 s) au premier démarrage
-    config.vm.boot_timeout = 30
+    config.vm.boot_timeout = 60
     # Nom de la box
     config.vm.box = "calc-os"
 
-    config.vm.synced_folder "shared/", "/shared"
+    config.vm.synced_folder "shared/", "c:/shared"
+    #config.vm.synced_folder "shared/", "c:/Documents and Settings/IEUser/Desktop"
+    #config.vm.synced_folder "shared/", "/shared", type: "nfs"
 
     # Configuration spécifique à la techno de virtualisation
     # utilisée
